@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Montreal Comic Con",
+        "img": "./../../assest/images/montreal.jpg",
+        "alt": "Montreal",
+        "button": "View Details"
+    },
+    {
+        "name": "Toronto Comic Con",
+        "img": "./../../assest/images/toronto.jpg",
+        "alt": "Toronto",
+        "button": "View Details"
+    },
+    {
+        "name": "Ottawa Comic Con",
+        "img": "./../../assest/images/ottawa.png",
+        "alt": "Ottawa",
+        "button": "View Details"
+    },
+    {
+        "name": "Vancouver FanExpo",
+        "img": "./../../assest/images/Vancouver.png",
+        "alt": "Vancouver",
+        "button": "View Details"
+    }
+]
