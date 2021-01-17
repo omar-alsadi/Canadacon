@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "./styles/Button"
 import { HeroBg, HeroContainer, HeroContent, HeroItems, HeroP, HeroTitle, VideoBg } from "./styles/Hero.style"
-import Video from "./../assest/videos/Hero.mp4"
+import Video from "./../assets/videos/Hero.mp4"
 
 
 const Hero = () => {

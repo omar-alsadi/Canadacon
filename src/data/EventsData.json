@@ -1,25 +1,25 @@
 [
     {
         "name": "Montreal Comic Con",
-        "img": "./../../assest/images/montreal.jpg",
+        "img": "./../assets/images/montreal.jpg",
         "alt": "Montreal",
         "button": "View Details"
     },
     {
         "name": "Toronto Comic Con",
-        "img": "./../../assest/images/toronto.jpg",
+        "img": "./../assets/images/toronto.jpg",
         "alt": "Toronto",
         "button": "View Details"
     },
     {
         "name": "Ottawa Comic Con",
-        "img": "./../../assest/images/ottawa.png",
+        "img": "./../assets/images/ottawa.jpg",
         "alt": "Ottawa",
         "button": "View Details"
     },
     {
         "name": "Vancouver FanExpo",
-        "img": "./../../assest/images/Vancouver.png",
+        "img": "./../assets/images/vancouver.jpg",
         "alt": "Vancouver",
         "button": "View Details"
     }

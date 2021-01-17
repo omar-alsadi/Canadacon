@@ -10,14 +10,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assest/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `video`,
-        path: `${__dirname}/src/assest/videos`,
+        path: `${__dirname}/src/assets/videos`,
       },
     },
     `gatsby-plugin-styled-components`,
