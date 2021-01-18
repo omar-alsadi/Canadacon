@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import Header from "../components/Header"
 import Events from "../components/Events"
 import Testimonials from "../components/Testimonials"
+import Stats from "../components/Stats"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
@@ -12,6 +13,7 @@ const IndexPage = () => (
     <Header />
     <Events />
     <Testimonials />
+    <Stats />
   </Layout>
 )
 
