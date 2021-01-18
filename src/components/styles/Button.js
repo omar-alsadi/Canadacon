@@ -17,7 +17,7 @@ export const Button = styled(Link)`
 
     &:hover {
         background: ${({ primary }) => (primary ? "#E44A28" : "#F26A2E")};
-        box-shadow: .5rem .5rem 2rem black;
+        box-shadow: .2rem .2rem .8rem black;
         transform: translateY(-2px);
     }
 `
