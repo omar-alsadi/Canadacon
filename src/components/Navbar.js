@@ -6,7 +6,7 @@ import { menuData } from './../data/NavData'
 const NavBar = () => (
 
     <Nav>
-        <NavLink>Canadacon</NavLink>
+        <NavLink css={`color: #f26a2e; font-size: 24px; font-weight: bold`} >CANADACON</NavLink>
         <Bars />
         <NavMenu>
             {menuData.map((list, index) => (

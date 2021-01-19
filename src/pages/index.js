@@ -6,6 +6,7 @@ import Events from "../components/Events"
 import Testimonials from "../components/Testimonials"
 import Stats from "../components/Stats"
 import Subscribtion from "../components/Subscribtion"
+import Footer from "../components/Footer"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
@@ -16,6 +17,7 @@ const IndexPage = () => (
     <Testimonials />
     <Stats />
     <Subscribtion />
+    <Footer />
   </Layout>
 )
 
