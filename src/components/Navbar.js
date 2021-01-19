@@ -12,6 +12,7 @@ const NavBar = () => (
             {menuData.map((list, index) => (
                 <NavLink id={index} to={list.link}>{list.title}</NavLink>
             ))}
+            <NavLink>FR</NavLink>
         </NavMenu>
         <NavBtn>
             <Button primary round to='/tickets' >Book Now</Button>
