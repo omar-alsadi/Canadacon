@@ -1,18 +1,21 @@
 import React from 'react'
 import { StatsContainer, Heading, Wrapper, StatBox, Icon, Title, Description } from './styles/Stats.style'
 import { StatsData } from './../data/StatsData'
+import { useStateValue } from './StateProvider'
 
 const Stats = () => {
 
+    const [{ isEnglish }] = useStateValue();
+
     return (
         <StatsContainer>
-            <Heading>Why Choose Us?</Heading>
+            <Heading>{isEnglish ? `Why Choose Us?` : `Pourquoi Nous Choisir?`}</Heading>
             <Wrapper>
                 {StatsData.map((item, index) => (
                     <StatBox id={index}>
                         <Icon>{item.icon}</Icon>
-                        <Title>{item.title}</Title>
-                        <Description>{item.desc}</Description>
+                        <Title>{isEnglish ? item.titleEn : item.titleFr}</Title>
+                        <Description>{isEnglish ? item.desc : item.descFr}</Description>
                     </StatBox>
                 ))}
             </Wrapper>

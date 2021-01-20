@@ -2,11 +2,11 @@ import React from "react"
 import NavBar from "./Navbar"
 import Hero from "./Hero"
 
-const Header = () => {
+const Header = ({ color }) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar color={color} />
       <Hero />
     </>
   )

@@ -12,7 +12,7 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Header />
+    <Header color={'#fff'} />
     <Events />
     <Testimonials />
     <Stats />

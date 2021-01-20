@@ -1,14 +1,18 @@
 import React from "react"
 import { FooterContainer, FooterDesc, FooterLink, FooterLinkItems, FooterLinksWrapper, FooterLinkTitle } from "./styles/Footer.style"
+import { useStateValue } from './StateProvider'
 
 const Footer = () => {
+
+    const [{ isEnglish }] = useStateValue();
 
     return (
         <FooterContainer>
             <FooterLinksWrapper>
                 <FooterDesc>
                     <h1>Canadacon</h1>
-                    <p>We strive to make the best experiances for our customers</p>
+                    <p>{isEnglish ? `We strive to make the best experiances for our customers` :
+                        `Nous nous efforçons de faire les meilleures expériences pour nos clients`}</p>
                 </FooterDesc>
                 <FooterLinkItems>
                     <FooterLinkTitle>Contact Us</FooterLinkTitle>

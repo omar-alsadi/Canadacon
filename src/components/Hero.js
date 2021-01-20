@@ -2,9 +2,13 @@ import React from "react"
 import { Button } from "./styles/Button"
 import { HeroBg, HeroContainer, HeroContent, HeroItems, HeroP, HeroTitle, VideoBg } from "./styles/Hero.style"
 import Video from "./../assets/videos/Hero.mp4"
+import { useStateValue } from './StateProvider'
 
 
 const Hero = () => {
+
+    const [{ isEnglish }] = useStateValue();
+
     return (
         <HeroContainer>
             <HeroBg>
@@ -13,10 +17,18 @@ const Hero = () => {
             <HeroContent>
                 <HeroItems>
                     <HeroTitle>
-                        Hello Otako!
+                        {
+                            isEnglish ? `Hello Otako!` : `Bonjour Otaku!`
+                        }
                     </HeroTitle>
-                    <HeroP>Let's Celebrate Together</HeroP>
-                    <Button primary big round to='/tickets' >Join Us</Button>
+                    <HeroP>
+                        {
+                            isEnglish ?
+                                `Let's Celebrate Together` :
+                                `Célébrons ensemble`
+                        }
+                    </HeroP>
+                    <Button primary='true' big='true' round='true' to='/tickets'>{isEnglish ? `Join Us` : `Rejoignez-nous`}</Button>
                 </HeroItems>
             </HeroContent>
         </HeroContainer>

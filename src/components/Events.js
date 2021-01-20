@@ -3,9 +3,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { EventContainer, EventWrapper, EventHeading, EventImg, EventInfo, TextWrap, EventTitle, EventCard } from './styles/Events.style'
 import { ImLocation } from 'react-icons/im'
 import { Button } from "./styles/Button"
-
+import { useStateValue } from './StateProvider'
 
 const Events = () => {
+
+    const [{ isEnglish }] = useStateValue();
 
     const data = useStaticQuery(graphql`
         query EventsQuery {
@@ -14,7 +16,8 @@ const Events = () => {
                 node {
                 id
                 alt
-                button
+                buttonEn
+                buttonFr
                 name
                 img {
                     childImageSharp {
@@ -43,7 +46,7 @@ const Events = () => {
                             <ImLocation />
                             <EventTitle>{edge.node.name}</EventTitle>
                         </TextWrap>
-                        <Button primary round to='/tickets' css={`position: absolute; top: 420px;`}> {edge.node.button}</Button>
+                        <Button primary='true' round='true' to='/tickets' css={`position: absolute; top: 420px;`}> {isEnglish ? edge.node.buttonEn : edge.node.buttonFr}</Button>
                     </EventInfo>
                 </EventCard>
             )
@@ -57,7 +60,7 @@ const Events = () => {
     return (
         <>
             <EventContainer >
-                <EventHeading>Join Us!</EventHeading>
+                <EventHeading>{isEnglish ? `Join Us` : `Rejoignez-nous`}</EventHeading>
                 <EventWrapper>{getEvents(data)}</EventWrapper>
             </EventContainer>
         </>

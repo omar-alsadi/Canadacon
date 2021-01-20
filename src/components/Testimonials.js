@@ -3,8 +3,11 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { FaRegLightbulb } from 'react-icons/fa'
 import { ColumnOne, ColumnTwo, ContentWrapper, Description, Testimonial, TopLine, TestimonialsContainer, Images } from "./styles/Testimonials.style"
 import { useStaticQuery, graphql } from 'gatsby'
+import { useStateValue } from './StateProvider'
 
 const Testimonials = () => {
+
+    const [{ isEnglish }] = useStateValue();
 
     const data = useStaticQuery(graphql`
         query ImageQuery {
@@ -26,8 +29,8 @@ const Testimonials = () => {
 
     return (
         <TestimonialsContainer>
-            <TopLine>Testimonials</TopLine>
-            <Description>What People Are Saying</Description>
+            <TopLine>{isEnglish ? `Testimonials` : `Témoignages`}</TopLine>
+            <Description>{isEnglish ? `What People Are Saying` : `Ce Que Les Gens Disent`}</Description>
             <ContentWrapper>
                 <ColumnOne>
                     <Testimonial>
