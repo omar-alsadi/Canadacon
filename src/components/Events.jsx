@@ -39,7 +39,7 @@ const Events = () => {
         data.allEventsDataJson.edges.map((edge, index) => {
             eventsArray.push(
 
-                <EventCard id={index}>
+                <EventCard key={index}>
                     <EventImg src={edge.node.img.childImageSharp.fluid.src} alt={edge.node.alt} fluid={edge.node.img.childImageSharp.fluid} />
                     <EventInfo>
                         <TextWrap>

@@ -20,6 +20,9 @@ const Subscribtion = () => {
                         </label>
                         <Button primary='true' round='true' type='submit' css={
                             `height: 48px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
                              @media screen and (max-width: 768px) {
                                  width: 100%;
                                  min-width: 350px;

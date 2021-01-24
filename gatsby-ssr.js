@@ -1,7 +1,17 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+// import React from "react";
+// import { StateProvider } from './src/components/StateProvider'
+// import "firebase/auth";
+// import "firebase/firestore";
 
-// You can delete this file if you're not using it
+// export const wrapRootElement = ({ element }) => {
+
+//     const windowGlobal = typeof window !== 'undefined' && window;
+
+//     windowGlobal.localStorage
+
+//     return (
+//         <StateProvider>
+//             {element}
+//         </StateProvider>
+//     )
+// }

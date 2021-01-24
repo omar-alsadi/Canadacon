@@ -17,7 +17,7 @@ const getNavStorage = localStorage.getItem("navScrolled")
 export const setStorage = (currentUser, isEnglish, navScrolled) => {
     localStorage.setItem(
         "currentUser",
-        JSON.stringify(currentUser ? currentUser : '')
+        currentUser ? currentUser : ''
     );
     localStorage.setItem(
         "isEnglish",
@@ -35,6 +35,8 @@ export const INITIAL_STATE = {
     isEnglish: getLanStorage,
     navScrolled: getNavStorage,
     isOpen: false,
+    userMenu: false,
+    error: ''
 }
 
 const Reducer = (state = INITIAL_STATE, action) => {
@@ -50,10 +52,27 @@ const Reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 isEnglish: !state.isEnglish
             };
+        case 'TOGGLE_USER_MENU':
+            return {
+                ...state,
+                userMenu: !state.userMenu
+            };
         case 'SIGN_IN_SUCCESS':
             return {
                 ...state,
-                currentUser: action.payload
+                currentUser: action.payload,
+                error: ''
+            }
+        case 'SIGN_OUT_SUCCESS':
+            return {
+                ...state,
+                currentUser: null,
+                error: ''
+            }
+        case 'SIGN_FAILURE':
+            return {
+                ...state,
+                error: action.payload
             }
         case "IS_SCROLLING_TOP":
             return {

@@ -16,26 +16,26 @@ const Footer = () => {
                 </FooterDesc>
                 <FooterLinkItems>
                     <FooterLinkTitle>Contact Us</FooterLinkTitle>
-                    <FooterLink to=''>Contact</FooterLink>
-                    <FooterLink to=''>Support</FooterLink>
-                    <FooterLink to=''>Events</FooterLink>
-                    <FooterLink to=''>Sponsorships</FooterLink>
+                    <FooterLink to='#'>Contact</FooterLink>
+                    <FooterLink to='#'>Support</FooterLink>
+                    <FooterLink to='#'>Events</FooterLink>
+                    <FooterLink to='#'>Sponsorships</FooterLink>
                 </FooterLinkItems>
             </FooterLinksWrapper>
             <FooterLinksWrapper>
                 <FooterLinkItems>
                     <FooterLinkTitle>Studio</FooterLinkTitle>
-                    <FooterLink to=''>Videos</FooterLink>
-                    <FooterLink to=''>Gallery</FooterLink>
-                    <FooterLink to=''>Coordinators</FooterLink>
-                    <FooterLink to=''>Influncer</FooterLink>
+                    <FooterLink to='#'>Videos</FooterLink>
+                    <FooterLink to='#'>Gallery</FooterLink>
+                    <FooterLink to='#'>Coordinators</FooterLink>
+                    <FooterLink to='#'>Influncer</FooterLink>
                 </FooterLinkItems>
                 <FooterLinkItems>
                     <FooterLinkTitle>Social Media</FooterLinkTitle>
-                    <FooterLink to=''>Instagram</FooterLink>
-                    <FooterLink to=''>Facebook</FooterLink>
-                    <FooterLink to=''>Youtube</FooterLink>
-                    <FooterLink to=''>Twitter</FooterLink>
+                    <FooterLink to='#'>Instagram</FooterLink>
+                    <FooterLink to='#'>Facebook</FooterLink>
+                    <FooterLink to='#'>Youtube</FooterLink>
+                    <FooterLink to='#'>Twitter</FooterLink>
                 </FooterLinkItems>
             </FooterLinksWrapper>
         </FooterContainer>

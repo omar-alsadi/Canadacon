@@ -42,5 +42,19 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: "AIzaSyBapC7kdbsmNKXxJPKiiqHVrOWLGEzZNus",
+          authDomain: "canada-con.firebaseapp.com",
+          projectId: "canada-con",
+          storageBucket: "canada-con.appspot.com",
+          messagingSenderId: "1013868946502",
+          appId: "1:1013868946502:web:a33233c5ff09ead6439647",
+          measurementId: "G-0S8VY75YB1"
+        }
+      }
+    }
   ],
 }

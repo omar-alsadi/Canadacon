@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+// const React = require("react");
+// const StateProvider = require("./src/components/StateProvider");
 
-// You can delete this file if you're not using it
+// require("firebase/auth");
+// require("firebase/firestore");
+
+// exports.wrapRootElement = ({ element }) => {
+//     return <StateProvider>
+//         {element}
+//     </StateProvider>
+// }

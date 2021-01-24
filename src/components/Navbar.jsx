@@ -1,18 +1,19 @@
 import React, { useEffect } from "react"
-import { Nav, NavLink, Bars, CloseBars, NavMenu, NavBtn, NavLogo } from './styles/Navbar.style'
+import UserNav from './UserNav.component'
+import { Nav, NavLink, Bars, CloseBars, NavMenu, NavBtn, NavLogo, LanBtn } from './styles/Navbar.style'
 import { Button } from './styles/Button'
 import { menuData } from './../data/NavData'
 import { useStateValue } from './StateProvider'
 import { setStorage } from './../Reducer'
-import { toggleNav, toggleEn, isScrollingTop, isScrollingBack } from './../actions'
+import { toggleNav, toggleEn, isScrollingTop, isScrollingBack, toggleUserMenu } from './../actions'
+import { signOut } from "../firebase.utilities"
 
 const NavBar = ({ color }) => {
 
-    const [{ isOpen, isEnglish, currentUser, navScrolled }, dispatch] = useStateValue();
+    const [{ isOpen, isEnglish, currentUser, navScrolled, userMenu }, dispatch] = useStateValue();
 
     const hundleClick = () => {
         dispatch(toggleEn());
-        console.log(currentUser);
         return isEnglish;
     }
 
@@ -38,40 +39,32 @@ const NavBar = ({ color }) => {
         isOpen && `background-color: rgba(0,0,0,.95) !important; height: 100%`]}>
             <NavLogo to='/' css={`color: #f26a2e; font-size: 24px; font-weight: bold;`}>CANADACON</NavLogo>
             {
-                isOpen ? <CloseBars onClick={() => dispatch(toggleNav())} /> : <Bars onClick={() => dispatch(toggleNav())} />
+                isOpen ? <CloseBars onClick={() => dispatch(toggleNav())} /> : <Bars onClick={() => dispatch(toggleNav())}
+                    css={navScrolled ? `color: #fff;` : `color: ${color};`} />
             }
 
             <NavMenu css={isOpen && `height: 100vh;padding: 5rem;`}>
                 {menuData.map((list, index) => (
-                    <NavLink id={index} to={list.link} css={isOpen ? `visibility: visible; color: ${color};` : `color: ${color};`}>
+                    <NavLink key={index} id={index} to={list.link} css={[isOpen && `visibility: visible;`,
+                    navScrolled ? `color: #fff;` : `color: ${color};`]}>
                         {isEnglish ? list.en : list.fr}
                     </NavLink>
                 ))}
-                <button onClick={() => hundleClick()} type='button' css={`
-                color: ${color};
-                background: none;
-                outline: none;
-                text-transform: uppercase;
-                border: none;
-                font-size: 14px;
-                font-weight: bold;
-                padding: 0 1rem;
-                height: 100%;
-                cursor: pointer;
+                <LanBtn onClick={() => hundleClick()} type='button' css={
+                    [isOpen && `visibility: visible;`,
+                    navScrolled ? `color: #fff;` : `color: ${color};`,
 
-                &:hover {
-                    color: #f26a2e;
-                }
-                @media screen and (max-width:768px) {
+                    `@media screen and (max-width:768px) {
+                    color: #fff !important;
                     ${isOpen ? `visibility: visible;` : `visibility: hidden;`}
-                }
-                `} >
+                }`
+                    ]} >
                     {
                         isEnglish ? 'FR' : 'EN'
                     }
-                </button>
+                </LanBtn>
                 {
-                    isOpen && <Button primary='true' round='true' to='/tickets' css={isOpen && `visibility: visible;`} >
+                    isOpen && <Button primary='true' round='true' to='/sign' css={isOpen && `visibility: visible;`} >
                         {isEnglish ? `Sign In` : `Se Connecter`}
                     </Button>
 
@@ -79,9 +72,11 @@ const NavBar = ({ color }) => {
             </NavMenu>
             <NavBtn>
                 {currentUser ?
-                    <Button primary='true' round='true' to='/sign' >
-                        {isEnglish ? `Sign Out` : `Déconnexion`}
-                    </Button> :
+                    <div onClick={() => dispatch(toggleUserMenu())}>
+                        <UserNav currentUser={currentUser} navScrolled={navScrolled}
+                            color={color} />
+                    </div>
+                    :
                     <Button primary='true' round='true' to='/sign'>
                         {isEnglish ? `Sign In` : `Se Connecter`}
                     </Button>

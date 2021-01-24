@@ -6,7 +6,7 @@ export const FooterContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     color: #000;
     background: #fafafb ;
-    padding: 5rem calc((100vw - 1100px) / 2);
+    padding: 3rem calc((100vw - 1100px) / 2);
 
     @media screen and (max-width: 400px) {
     grid-template-columns: 1fr;

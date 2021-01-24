@@ -9,16 +9,19 @@ import Subscribtion from "../components/Subscribtion"
 import Footer from "../components/Footer"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Header color={'#fff'} />
-    <Events />
-    <Testimonials />
-    <Stats />
-    <Subscribtion />
-    <Footer />
-  </Layout>
-)
+const IndexPage = () => {
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Header color={'#fff'} />
+      <Events />
+      <Testimonials />
+      <Stats />
+      <Subscribtion />
+      <Footer />
+    </Layout>
+  )
+}
 
 export default IndexPage

@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from "react";
+import { StateProvider } from './src/components/StateProvider'
+import "firebase/auth";
+import "firebase/firestore";
 
-// You can delete this file if you're not using it
+
+export const wrapRootElement = ({ element }) => {
+
+    return (
+        <StateProvider>
+            {element}
+        </StateProvider>
+    )
+}
