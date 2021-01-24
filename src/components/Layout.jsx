@@ -1,20 +1,32 @@
 import React, { useEffect } from "react"
 
 import { GlobalStyle } from "./styles/GlobalStyle"
+import { useStateValue } from './StateProvider'
 
-import { checkUserSession } from "../actions"
-import { StateContext } from './StateProvider'
+import { isUserAuthenticated } from "../firebase.utilities"
+import NavBar from "../components/NavBar"
+import Footer from "../components/Footer"
+import SEO from "../components/seo"
 
-const Layout = ({ children }) => {
+
+const Layout = ({ children, title, color }) => {
+
+  const [{ isUserSigned }, dispatch] = useStateValue();
 
   useEffect(() => {
-    checkUserSession()
-  }, [checkUserSession])
+    isUserSigned &&
+      dispatch(isUserAuthenticated(dispatch))
+  }, [isUserSigned])
 
   return (
     <>
       <GlobalStyle />
-      <main>{children}</main>
+      <main>
+        <SEO title={title} />
+        <NavBar color={color} />
+        {children}
+        <Footer />
+      </main>
     </>
   )
 }

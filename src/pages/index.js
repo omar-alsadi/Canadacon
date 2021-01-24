@@ -6,20 +6,16 @@ import Events from "../components/Events"
 import Testimonials from "../components/Testimonials"
 import Stats from "../components/Stats"
 import Subscribtion from "../components/Subscribtion"
-import Footer from "../components/Footer"
-import SEO from "../components/seo"
 
 const IndexPage = () => {
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <Header color={'#fff'} />
+    <Layout title={'Home'} color={'#fff'}>
+      <Header />
       <Events />
       <Testimonials />
       <Stats />
       <Subscribtion />
-      <Footer />
     </Layout>
   )
 }

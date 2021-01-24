@@ -6,21 +6,21 @@ import { signInWithFB, signInWithGoogle } from '../firebase.utilities'
 
 const SignIn = () => {
 
-    const [{ isEnglish, currentUser, navScrolled, isUserSigned }, dispatch] = useStateValue();
-
-    setStorage(currentUser, isEnglish, navScrolled, isUserSigned)
+    const [{ isEnglish, currentUser, navScrolled }, dispatch] = useStateValue();
 
     useEffect(() => {
         console.log('user: ', currentUser);
     })
+
+    setStorage(isEnglish, navScrolled, currentUser)
 
     return (
         <SignContainer>
             <SignWrap>
                 <SignTitle>{isEnglish ? `Sign in via` : `Connectez-vous via`}</SignTitle>
                 <BtnWrapper>
-                    <Btn round='true' google onClick={() => signInWithGoogle(dispatch)}><GoogleIcon />Google</Btn>
-                    <Btn round='true' facebook onClick={() => signInWithFB(dispatch)}><FacebookIcon />Facebook</Btn>
+                    <Btn round='true' type='button' google onClick={() => signInWithGoogle(dispatch)}><GoogleIcon />Google</Btn>
+                    <Btn round='true' type='button' facebook onClick={() => signInWithFB(dispatch)}><FacebookIcon />Facebook</Btn>
                 </BtnWrapper>
             </SignWrap>
         </SignContainer>

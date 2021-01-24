@@ -1,7 +1,7 @@
 import firebase from 'gatsby-plugin-firebase'
 import 'firebase/auth'
 import 'firebase/firestore'
-import { signInSuccess, signFailure, signOutSuccess, signOutFailure } from './actions'
+import { signInSuccess, signFailure, signOutSuccess } from './actions'
 
 export const auth = firebase.auth();
 
@@ -21,12 +21,12 @@ export const getCurrentUser = () => {
 //////////////// IS USER AUTH ////////////////
 
 
-export const isUserAuthenticated = async () => {
+export const isUserAuthenticated = async (dispatch) => {
 
     try {
         const userAuth = await getCurrentUser();
         if (!userAuth) return;
-        await getSnapshotFromAuth(userAuth);
+        await getSnapshotFromAuth(userAuth, dispatch);
     } catch (error) {
         await signFailure(error)
     }

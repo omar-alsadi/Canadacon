@@ -1,9 +1,5 @@
 // To get items from the page
 
-const getUserStorage = localStorage.getItem("currentUser")
-    ? JSON.parse(localStorage.getItem("currentUser"))
-    : null;
-
 const getLanStorage = localStorage.getItem("isEnglish")
     ? JSON.parse(localStorage.getItem("isEnglish"))
     : true;
@@ -12,13 +8,13 @@ const getNavStorage = localStorage.getItem("navScrolled")
     ? JSON.parse(localStorage.getItem("navScrolled"))
     : false;
 
+const getUserStorage = localStorage.getItem("isUserSigned")
+    ? JSON.parse(localStorage.getItem("isUserSigned"))
+    : false;
+
 // To save items even refreshing the page
 
-export const setStorage = (currentUser, isEnglish, navScrolled) => {
-    localStorage.setItem(
-        "currentUser",
-        currentUser ? currentUser : ''
-    );
+export const setStorage = (isEnglish, navScrolled, currentUser) => {
     localStorage.setItem(
         "isEnglish",
         JSON.stringify(isEnglish ? true : false)
@@ -27,15 +23,20 @@ export const setStorage = (currentUser, isEnglish, navScrolled) => {
         "navScrolled",
         JSON.stringify(navScrolled ? true : false)
     );
+    localStorage.setItem(
+        "isUserSigned",
+        JSON.stringify(currentUser ? true : false)
+    );
 };
 
 
 export const INITIAL_STATE = {
-    currentUser: getUserStorage,
+    currentUser: null,
     isEnglish: getLanStorage,
     navScrolled: getNavStorage,
     isOpen: false,
     userMenu: false,
+    isUserSigned: getUserStorage,
     error: ''
 }
 
@@ -61,13 +62,15 @@ const Reducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentUser: action.payload,
-                error: ''
+                error: '',
+                isUserSigned: true
             }
         case 'SIGN_OUT_SUCCESS':
             return {
                 ...state,
                 currentUser: null,
-                error: ''
+                error: '',
+                isUserSigned: false
             }
         case 'SIGN_FAILURE':
             return {

@@ -6,18 +6,17 @@ import { menuData } from './../data/NavData'
 import { useStateValue } from './StateProvider'
 import { setStorage } from './../Reducer'
 import { toggleNav, toggleEn, isScrollingTop, isScrollingBack, toggleUserMenu } from './../actions'
-import { signOut } from "../firebase.utilities"
 
 const NavBar = ({ color }) => {
 
-    const [{ isOpen, isEnglish, currentUser, navScrolled, userMenu }, dispatch] = useStateValue();
+    const [{ isOpen, isEnglish, currentUser, navScrolled }, dispatch] = useStateValue();
 
     const hundleClick = () => {
         dispatch(toggleEn());
         return isEnglish;
     }
 
-    setStorage(currentUser, isEnglish, navScrolled);
+    setStorage(isEnglish, navScrolled, currentUser);
 
     const changeBackground = () => {
         let scroll = window.scrollY;
