@@ -3,6 +3,7 @@
         "name": "Montreal Comic Con",
         "img": "./../assets/images/montreal.jpg",
         "alt": "Montreal",
+        "date": "2021 / 07 / 01",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
     },
@@ -10,6 +11,7 @@
         "name": "Toronto Comic Con",
         "img": "./../assets/images/toronto.jpg",
         "alt": "Toronto",
+        "date": "2021 / 07 / 15",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
     },
@@ -17,6 +19,7 @@
         "name": "Ottawa Comic Con",
         "img": "./../assets/images/ottawa.jpg",
         "alt": "Ottawa",
+        "date": "2021 / 07 / 08",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
     },
@@ -24,6 +27,7 @@
         "name": "Vancouver FanExpo",
         "img": "./../assets/images/vancouver.jpg",
         "alt": "Vancouver",
+        "date": "2021 / 08 / 08",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
     }

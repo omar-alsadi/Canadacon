@@ -1,10 +1,8 @@
 import styled from 'styled-components'
-import Wallpapre from './../../assets/images/sign-wp.png'
 import { ImFacebook2, ImGoogle } from 'react-icons/im'
 
 
 export const SignContainer = styled.div`
-    background: url(${Wallpapre});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

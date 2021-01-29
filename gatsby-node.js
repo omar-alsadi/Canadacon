@@ -1,11 +1,48 @@
-// const React = require("react");
-// const StateProvider = require("./src/components/StateProvider");
+const path = require('path');
 
-// require("firebase/auth");
-// require("firebase/firestore");
+exports.onCreateNode = ({ node, actions }) => {
+    const { createNodeField } = actions;
 
-// exports.wrapRootElement = ({ element }) => {
-//     return <StateProvider>
-//         {element}
-//     </StateProvider>
-// }
+    if (node.internal.type === 'EventsDataJson') {
+        const slug = path.basename(node.name.replace(/ /g, '-').toLowerCase());
+
+        createNodeField({
+            node,
+            name: 'slug',
+            value: slug
+        })
+
+    }
+
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions;
+
+    const template = path.resolve(`./src/templates/eventTemplate.js`)
+
+    const res = await graphql(`
+        query EventsQuery {
+            allEventsDataJson {
+                edges {
+                    node {
+                        fields {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    res.data.allEventsDataJson.edges.forEach((edge) => {
+        createPage({
+            component: template,
+            path: `/events/${edge.node.fields.slug}`,
+            context: {
+                slug: edge.node.fields.slug
+            }
+        })
+    })
+
+}

@@ -13,15 +13,15 @@ const Testimonials = () => {
         query ImageQuery {
             allFile(filter: {extension: {regex: "/(jpg)|(png)|(jpeg)/"},
             name: {in: ["testimonia-1","testimonia-2"]}}) {
-            edges {
-                node {
-                childImageSharp {
-                    fluid {
-                    ...GatsbyImageSharpFluid
+                edges {
+                    node {
+                        childImageSharp {
+                            fluid {
+                            ...GatsbyImageSharpFluid
+                            }
+                        }
                     }
                 }
-                }
-            }
             }
         } 
     `)

@@ -5,6 +5,7 @@ import { ImLocation } from 'react-icons/im'
 import { Button } from "./styles/Button"
 import { useStateValue } from './StateProvider'
 
+
 const Events = () => {
 
     const [{ isEnglish }] = useStateValue();
@@ -36,7 +37,7 @@ const Events = () => {
 
         const eventsArray = [];
 
-        data.allEventsDataJson.edges.map((edge, index) => {
+        data.allEventsDataJson.edges.slice(0, 4).map((edge, index) => {
             eventsArray.push(
 
                 <EventCard key={index}>

@@ -36,6 +36,7 @@ export const INITIAL_STATE = {
     navScrolled: getNavStorage,
     isOpen: false,
     userMenu: false,
+    isVisible: false,
     isUserSigned: getUserStorage,
     error: ''
 }

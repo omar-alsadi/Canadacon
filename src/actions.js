@@ -11,6 +11,10 @@ export const toggleUserMenu = () => ({
     type: 'TOGGLE_USER_MENU'
 })
 
+export const toggleVisible = () => ({
+    type: 'TOGGLE_VISIBILE'
+})
+
 export const checkUserSession = () => ({
     type: 'CHECK_USER_SESSION'
 })

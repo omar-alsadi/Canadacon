@@ -93,18 +93,19 @@ facebookProvider.setCustomParameters({
 export const signInWithFB = async (dispatch) => {
 
     try {
-        const { user } = await auth.signInWithPopup(facebookProvider)
-        console.log('facebook user: ', user)
-        const userData = await getSnapshotFromAuth(user, dispatch)
 
-        console.log('facebook user: ', userData)
+        const userData = await auth.signInWithPopup(facebookProvider);
+        const { user } = await userData;
+        console.log('facebook user: ', user)
+
+        await getSnapshotFromAuth(user, dispatch)
+
 
         const userRef = await firestore.doc(`users/${user.uid}`);
 
-        console.log('userRef: ', userRef)
 
         await userRef.update({
-            photoURL: user.photoURL
+            photoURL: userData.additionalUserInfo.profile.picture.data.url
         })
 
     } catch (error) {
