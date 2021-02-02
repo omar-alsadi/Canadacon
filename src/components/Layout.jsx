@@ -4,7 +4,7 @@ import { GlobalStyle } from "./styles/GlobalStyle"
 import { useStateValue } from './StateProvider'
 
 import { isUserAuthenticated } from "../firebase.utilities"
-import NavBar from "../components/NavBar"
+import NavBar from "../components/Navbar"
 import Footer from "../components/Footer"
 import SEO from "../components/seo"
 import useFirebase from "../useFirebase"

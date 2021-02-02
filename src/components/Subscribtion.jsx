@@ -1,14 +1,33 @@
 import React from "react"
 import { Button } from "./styles/Button"
-import { SubscribtionContainer, SubscribtionContent, FormWrap } from './styles/Subscribtion.style'
-import { useStateValue } from './StateProvider'
+import { SubscribtionContainer, SubscribtionContent, FormWrap } from './styles/Subscribtion.style';
+import { useStaticQuery, graphql } from 'gatsby';
+import { useStateValue } from './StateProvider';
 
 const Subscribtion = () => {
+
+    const subWallpaper = useStaticQuery(graphql`
+            query subWallpaperQuery {
+                allFile(filter: {name: {in: "subscribtion"}}) {
+                    edges {
+                        node {
+                            childImageSharp {
+                                fluid {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    `)
 
     const [{ isEnglish }] = useStateValue();
 
     return (
-        <SubscribtionContainer>
+        <SubscribtionContainer css={`background: linear-gradient(180deg, rgba(0,0,0,.5) 0%,
+        rgba(0,0,0,.5) 35%,rgba(0,0,0,.1) 100%),
+         url(${subWallpaper.allFile.edges[0].node.childImageSharp.fluid.src}) no-repeat bottom;background-size: cover;`}>
             <SubscribtionContent>
                 <h1>{isEnglish ? `Get Access to Exclusive Offers` : `Accédez à des offres exclusives`}</h1>
                 <p>{isEnglish ? `Sign up for newsletter below to get %20 off your first ticket!` :
