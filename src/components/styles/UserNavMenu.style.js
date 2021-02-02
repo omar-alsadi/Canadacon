@@ -47,6 +47,7 @@ export const UserNavList = styled(Link)`
 `
 
 export const UserNavBtn = styled.button`
+    font-size: 14px;
     width: 100%;
     background-color: #fff;
     color: black;

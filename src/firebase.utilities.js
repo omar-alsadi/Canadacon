@@ -49,7 +49,6 @@ export const isUserAuthenticated = async (dispatch) => {
 
     try {
         const userAuth = await getCurrentUser();
-        // test  await userAuth.reload();
         if (!userAuth) return;
         await getSnapshotFromAuth(userAuth, dispatch);
     } catch (error) {
@@ -144,8 +143,6 @@ export const signInWithFB = async (dispatch) => {
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 googleProvider.setCustomParameters({ prompt: 'select_account' });
-
-////// problem with dispatch result to reducer
 
 export const signInWithGoogle = async (dispatch) => {
     try {
