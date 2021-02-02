@@ -3,7 +3,6 @@ import { StateProvider } from './src/components/StateProvider'
 import "firebase/auth";
 import "firebase/firestore";
 
-
 export const wrapRootElement = ({ element }) => {
 
     return (

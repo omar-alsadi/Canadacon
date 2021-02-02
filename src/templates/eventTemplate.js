@@ -6,34 +6,28 @@ import { graphql } from 'gatsby';
 
 export const query = graphql`
     query ($slug: String!) {
-        allEventsDataJson(filter: {fields: {slug: {eq: $slug }}}) {
-        edges {
-            node {
+        eventsDataJson(fields: {slug: {eq: $slug }}) {
             alt
             buttonEn
             buttonFr
             date
             id
             name
-            fields {
-                slug
-            }
             img {
-                name
-                publicURL
+              name
+              publicURL
             }
-            }
-        }
         }
     }
   
 `
 
-const eventTemplate = (props) => {
+const eventTemplate = ({ data }) => {
+
+    const event = data.eventsDataJson;
 
     return (
-        <Layout title={'event'} color={'black'} >
-            {props}
+        <Layout title={`${event.name}`} color={'black'} >
         </Layout>
     )
 }

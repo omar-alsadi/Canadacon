@@ -1,29 +1,29 @@
 // To get items from the page
 
-const getLanStorage = localStorage.getItem("isEnglish")
+const getLanStorage = typeof window !== 'undefined' && window.localStorage.getItem("isEnglish")
     ? JSON.parse(localStorage.getItem("isEnglish"))
     : true;
 
-const getNavStorage = localStorage.getItem("navScrolled")
+const getNavStorage = typeof window !== 'undefined' && window.localStorage.getItem("navScrolled")
     ? JSON.parse(localStorage.getItem("navScrolled"))
     : false;
 
-const getUserStorage = localStorage.getItem("isUserSigned")
+const getUserStorage = typeof window !== 'undefined' && window.localStorage.getItem("isUserSigned")
     ? JSON.parse(localStorage.getItem("isUserSigned"))
     : false;
 
 // To save items even refreshing the page
 
 export const setStorage = (isEnglish, navScrolled, currentUser) => {
-    localStorage.setItem(
+    typeof window !== 'undefined' && window.localStorage.setItem(
         "isEnglish",
         JSON.stringify(isEnglish ? true : false)
     );
-    localStorage.setItem(
+    typeof window !== 'undefined' && window.localStorage.setItem(
         "navScrolled",
         JSON.stringify(navScrolled ? true : false)
     );
-    localStorage.setItem(
+    typeof window !== 'undefined' && window.localStorage.setItem(
         "isUserSigned",
         JSON.stringify(currentUser ? true : false)
     );
@@ -40,6 +40,7 @@ export const INITIAL_STATE = {
     isUserSigned: getUserStorage,
     error: ''
 }
+
 
 const Reducer = (state = INITIAL_STATE, action) => {
 

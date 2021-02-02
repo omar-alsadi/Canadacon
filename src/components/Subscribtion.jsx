@@ -18,7 +18,7 @@ const Subscribtion = () => {
                         <label htmlFor='email'>
                             <input type='email' placeholder={isEnglish ? `Enter your email` : `Entrer votre é-courrier`} id="email" autoComplete='off' />
                         </label>
-                        <Button primary='true' round='true' type='submit' css={
+                        <Button to='/' primary='true' round='true' type='submit' css={
                             `height: 48px;
                             display: flex;
                             align-items: center;

@@ -7,16 +7,20 @@ import { isUserAuthenticated } from "../firebase.utilities"
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 import SEO from "../components/seo"
+import useFirebase from "../useFirebase"
 
 
 const Layout = ({ children, title, color }) => {
 
   const [{ isUserSigned }, dispatch] = useStateValue();
 
+  const firebase = useFirebase();
+
   useEffect(() => {
-    isUserSigned &&
-      dispatch(isUserAuthenticated(dispatch))
-  }, [isUserSigned])
+    if (!firebase) return;
+    if (isUserSigned) return dispatch(isUserAuthenticated(dispatch));
+  }, [firebase]);
+
 
   return (
     <>

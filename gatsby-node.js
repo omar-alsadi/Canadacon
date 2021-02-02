@@ -35,12 +35,12 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     `)
 
-    res.data.allEventsDataJson.edges.forEach((edge) => {
+    res.data.allEventsDataJson.edges.forEach(({ node }) => {
         createPage({
             component: template,
-            path: `/events/${edge.node.fields.slug}`,
+            path: `/events/${node.fields.slug}`,
             context: {
-                slug: edge.node.fields.slug
+                slug: node.fields.slug
             }
         })
     })

@@ -5,13 +5,14 @@
   "version": "0.1.0",
   "author": "Omar Alsadi",
   "dependencies": {
-    "aos": "^3.0.0-beta.6",
     "babel-plugin-styled-components": "^1.12.0",
-    "firebase": "^8.2.3",
+    "firebase": "^8.2.5",
+    "firebase-admin": "^9.4.2",
     "gatsby": "^2.31.0",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-no-sourcemaps": "^2.8.0",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
@@ -30,16 +31,19 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
     "prettier": "2.2.1",
-    "use-reducer-logger": "^1.0.2"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "use-reducer-logger": "^1.0.2",
+    "webpack-cli": "^4.4.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

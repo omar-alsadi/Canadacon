@@ -1,11 +1,42 @@
-import firebase from 'gatsby-plugin-firebase'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 import { signInSuccess, signFailure, signOutSuccess } from './actions'
 
-export const auth = firebase.auth();
+const firebaseConfig = {
+    // apiKey: "AIzaSyBapC7kdbsmNKXxJPKiiqHVrOWLGEzZNus",
+    // authDomain: "canada-con.firebaseapp.com",
+    // projectId: "canada-con",
+    // storageBucket: "canada-con.appspot.com",
+    // messagingSenderId: "1013868946502",
+    // appId: "1:1013868946502:web:a33233c5ff09ead6439647",
+    // measurementId: "G-0S8VY75YB1",
+    apiKey: process.env.GATSBY_FIREBASE_API_KEY,
+    authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.GATSBY_FIREBASE_APP_ID,
+    measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+}
 
-export const firestore = firebase.firestore();
+let instance = null;
+let auth;
+let firestore;
+
+const getFirebase = () => {
+    if (typeof window !== 'undefined') {
+        if (instance) return instance;
+        instance = firebase.initializeApp(firebaseConfig);
+        auth = firebase.auth();
+        firestore = firebase.firestore();
+        return instance;
+    }
+
+    return null;
+}
+
+export default getFirebase;
 
 //////////////// GET CURRENT USER ////////////////
 
@@ -25,6 +56,7 @@ export const isUserAuthenticated = async (dispatch) => {
 
     try {
         const userAuth = await getCurrentUser();
+        // test  await userAuth.reload();
         if (!userAuth) return;
         await getSnapshotFromAuth(userAuth, dispatch);
     } catch (error) {
