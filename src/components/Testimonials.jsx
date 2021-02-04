@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { FaRegLightbulb } from 'react-icons/fa'
 import { ColumnOne, ColumnTwo, ContentWrapper, Description, Testimonial, TopLine, TestimonialsContainer, Images } from "./styles/Testimonials.style"
 import { useStaticQuery, graphql } from 'gatsby'
 import { useStateValue } from './StateProvider'
+import sr from '../sr';
+import { srConfig } from '../config';
 
 const Testimonials = () => {
+
+    const revealContainer = useRef(null);
+
+    useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
     const [{ isEnglish }] = useStateValue();
 
@@ -28,7 +34,7 @@ const Testimonials = () => {
 
 
     return (
-        <TestimonialsContainer>
+        <TestimonialsContainer ref={revealContainer}>
             <TopLine>{isEnglish ? `Testimonials` : `Témoignages`}</TopLine>
             <Description>{isEnglish ? `What People Are Saying` : `Ce Que Les Gens Disent`}</Description>
             <ContentWrapper>

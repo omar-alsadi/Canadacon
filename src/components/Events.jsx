@@ -1,12 +1,17 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import { EventContainer, EventWrapper, EventHeading, EventImg, EventInfo, TextWrap, EventTitle, EventCard, SeeMore } from './styles/Events.style'
 import { ImLocation } from 'react-icons/im'
 import { Button } from "./styles/Button"
 import { useStateValue } from './StateProvider'
-
+import sr from '../sr';
+import { srConfig } from '../config';
 
 const Events = () => {
+
+  const revealContainer = useRef(null);
+
+  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
   const [{ isEnglish }] = useStateValue();
 
@@ -64,7 +69,7 @@ const Events = () => {
 
   return (
     <>
-      <EventContainer >
+      <EventContainer ref={revealContainer} >
         <EventHeading>{isEnglish ? `Join Us` : `Rejoignez-nous`}</EventHeading>
         <EventWrapper>{getEvents(data)}</EventWrapper>
         <SeeMore to='/events'>See All Events &#8594;</SeeMore>

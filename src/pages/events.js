@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql } from 'gatsby'
 
 import Layout from "../components/Layout"
@@ -6,6 +6,8 @@ import { EventCard, EventContainer, EventImg, EventInfo, EventTitle, EventWrappe
 import { ImLocation } from "react-icons/im"
 import { Button } from "../components/styles/Button"
 import { useStateValue } from "../components/StateProvider"
+import sr from '../sr';
+import { srConfig } from '../config';
 
 export const data = graphql`
     query AllEventsQuery {
@@ -35,40 +37,44 @@ export const data = graphql`
 
 const EventsPage = ({ data }) => {
 
-    const [{ isEnglish }] = useStateValue();
+  const revealContainer = useRef(null);
 
-    const getEvents = data => {
+  useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
-        const eventsArray = [];
+  const [{ isEnglish }] = useStateValue();
 
-        data.allEventsDataJson.edges.map(({ node }, index) => {
-            eventsArray.push(
+  const getEvents = data => {
 
-                <EventCard key={index}>
-                    <EventImg src={node.img.childImageSharp.fluid.src} alt={node.alt} fluid={node.img.childImageSharp.fluid} />
-                    <EventInfo>
-                        <TextWrap>
-                            <ImLocation />
-                            <EventTitle>{node.name}</EventTitle>
-                        </TextWrap>
-                        <Button primary='true' round='true' to={`/events/${node.fields.slug}`} css={`position: absolute; top: 420px;`}> {isEnglish ? node.buttonEn : node.buttonFr}</Button>
-                    </EventInfo>
-                </EventCard>
-            )
-        });
+    const eventsArray = [];
 
-        return eventsArray
+    data.allEventsDataJson.edges.map(({ node }, index) => {
+      eventsArray.push(
 
-    }
+        <EventCard key={index}>
+          <EventImg src={node.img.childImageSharp.fluid.src} alt={node.alt} fluid={node.img.childImageSharp.fluid} />
+          <EventInfo>
+            <TextWrap>
+              <ImLocation />
+              <EventTitle>{node.name}</EventTitle>
+            </TextWrap>
+            <Button primary='true' round='true' to={`/events/${node.fields.slug}`} css={`position: absolute; top: 420px;`}> {isEnglish ? node.buttonEn : node.buttonFr}</Button>
+          </EventInfo>
+        </EventCard>
+      )
+    });
+
+    return eventsArray
+
+  }
 
 
-    return (
-        <Layout title={'Events'} color={'black'}>
-            <EventContainer >
-                <EventWrapper>{getEvents(data)}</EventWrapper>
-            </EventContainer>
-        </Layout>
-    )
+  return (
+    <Layout title={'Events'} color={'black'}>
+      <EventContainer ref={revealContainer} >
+        <EventWrapper>{getEvents(data)}</EventWrapper>
+      </EventContainer>
+    </Layout>
+  )
 }
 
 export default EventsPage

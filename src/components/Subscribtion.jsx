@@ -1,11 +1,16 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import emailjs from "emailjs-com";
 import { SubscribtionContainer, SubscribtionContent, FormWrap, SubmitBtn } from './styles/Subscribtion.style';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useStateValue } from './StateProvider';
-
+import sr from '../sr';
+import { srConfig } from '../config';
 
 const Subscribtion = () => {
+
+    const revealContainer = useRef(null);
+
+    useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -47,7 +52,7 @@ const Subscribtion = () => {
     const [{ isEnglish }] = useStateValue();
 
     return (
-        <SubscribtionContainer css={`background: linear-gradient(180deg, rgba(0,0,0,.5) 0%,
+        <SubscribtionContainer ref={revealContainer} css={`background: linear-gradient(180deg, rgba(0,0,0,.5) 0%,
         rgba(0,0,0,.5) 35%,rgba(0,0,0,.1) 100%),
          url(${subWallpaper.allFile.edges[0].node.childImageSharp.fluid.src}) no-repeat bottom;background-size: cover;`}>
             <SubscribtionContent>

@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { StatsContainer, Heading, Wrapper, StatBox, Icon, Title, Description } from './styles/Stats.style'
 import { StatsData } from '../data/StatsData'
 import { useStateValue } from './StateProvider'
+import sr from '../sr';
+import { srConfig } from '../config';
 
 const Stats = () => {
+
+    const revealContainer = useRef(null);
+
+    useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
     const [{ isEnglish }] = useStateValue();
 
     return (
-        <StatsContainer>
+        <StatsContainer ref={revealContainer}>
             <Heading>{isEnglish ? `Why Choose Us?` : `Pourquoi Nous Choisir?`}</Heading>
             <Wrapper>
                 {StatsData.map((item, index) => (
