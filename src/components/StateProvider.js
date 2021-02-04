@@ -10,7 +10,7 @@ export const StateContext = createContext();
 export const StateProvider = ({ children }) => {
 
     return (
-        <StateContext.Provider value={useReducer(logger(Reducer), INITIAL_STATE)}>
+        <StateContext.Provider value={useReducer(process.env.NODE_ENV === 'development' ? logger(Reducer) : Reducer, INITIAL_STATE)}>
             {children}
         </StateContext.Provider>
     )

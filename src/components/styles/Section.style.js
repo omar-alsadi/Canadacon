@@ -39,9 +39,19 @@ export const SectionText = styled.p`
     text-decoration: uppercase;
     line-height: 1.5;
     margin-bottom: 1rem;
+    width: 75%;
+    padding: 1rem;
 
     & span {
         font-size: 14px;
+    }
+
+    @media screen and (max-width: 780px) {
+        width: 85%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
     }
 `
 

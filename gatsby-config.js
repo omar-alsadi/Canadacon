@@ -42,6 +42,11 @@ module.exports = {
       options: {
         path: `./src/data/`,
       },
+    }, {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GATSBY_FIREBASE", "NODE_ENV"]
+      },
     },
   ],
 }
