@@ -4,13 +4,20 @@ import 'firebase/firestore'
 import { signInSuccess, signFailure, signOutSuccess } from './actions'
 
 const firebaseConfig = {
-    apiKey: process.env.GATSBY_FIREBASE_API_KEY,
-    authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.GATSBY_FIREBASE_APP_ID,
-    measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+    apiKey: "AIzaSyBapC7kdbsmNKXxJPKiiqHVrOWLGEzZNus",
+    authDomain: "canada-con.firebaseapp.com",
+    projectId: "canada-con",
+    storageBucket: "canada-con.appspot.com",
+    messagingSenderId: "1013868946502",
+    appId: "1:1013868946502:web:a33233c5ff09ead6439647",
+    measurementId: "G-0S8VY75YB1",
+    // apiKey: process.env.GATSBY_FIREBASE_API_KEY,
+    // authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
+    // projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
+    // storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
+    // messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
+    // appId: process.env.GATSBY_FIREBASE_APP_ID,
+    // measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
 }
 
 let instance = null;

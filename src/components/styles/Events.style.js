@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
 export const EventContainer = styled.div`
     min-height: 100vh;
@@ -76,4 +77,19 @@ export const TextWrap = styled.div`
     align-items: center;
     position: absolute;
     top: 375px;
+`
+
+export const SeeMore = styled(Link)`
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    color: #F26A2E;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .6s ease-in-out;
+    font-weight: bold;
+    &:hover {
+        color: #F24C2A;
+        text-decoration: underline;
+    }
 `

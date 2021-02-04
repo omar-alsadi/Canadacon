@@ -2,7 +2,7 @@
     {
         "name": "Montreal Comic Con",
         "img": "./../assets/images/montreal.jpg",
-        "alt": "Montreal",
+        "alt": "Montreal, CA",
         "date": "2021 / 07 / 01",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
@@ -10,7 +10,7 @@
     {
         "name": "Toronto Comic Con",
         "img": "./../assets/images/toronto.jpg",
-        "alt": "Toronto",
+        "alt": "Toronto, CA",
         "date": "2021 / 07 / 15",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
@@ -18,7 +18,7 @@
     {
         "name": "Ottawa Comic Con",
         "img": "./../assets/images/ottawa.jpg",
-        "alt": "Ottawa",
+        "alt": "Ottawa, CA",
         "date": "2021 / 07 / 08",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
@@ -26,8 +26,24 @@
     {
         "name": "Vancouver FanExpo",
         "img": "./../assets/images/vancouver.jpg",
-        "alt": "Vancouver",
+        "alt": "Vancouver, CA",
         "date": "2021 / 08 / 08",
+        "buttonEn": "View Details",
+        "buttonFr": "Voir Les Détails"
+    },
+    {
+        "name": "New York Comic Con",
+        "img": "./../assets/images/new-york.png",
+        "alt": "Ney York, USA",
+        "date": "2021 / 06 / 21",
+        "buttonEn": "View Details",
+        "buttonFr": "Voir Les Détails"
+    },
+    {
+        "name": "San Diago Comic Con",
+        "img": "./../assets/images/san-diago.png",
+        "alt": "Vancouver",
+        "date": "2021 / 09 / 10",
         "buttonEn": "View Details",
         "buttonFr": "Voir Les Détails"
     }
