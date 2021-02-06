@@ -7,7 +7,7 @@ import { useStateValue } from './StateProvider'
 
 const Hero = () => {
 
-    const [{ isEnglish }] = useStateValue();
+    const [{ isEnglish, currentUser }] = useStateValue();
 
     return (
         <HeroContainer>
@@ -28,7 +28,7 @@ const Hero = () => {
                                 `Célébrons ensemble`
                         }
                     </HeroP>
-                    <Button primary='true' big='true' round='true' to='/tickets'>{isEnglish ? `Join Us` : `Rejoignez-nous`}</Button>
+                    <Button primary='true' big='true' round='true' to={currentUser ? '/events' : '/sign'} >{isEnglish ? `Join Us` : `Rejoignez-nous`}</Button>
                 </HeroItems>
             </HeroContent>
         </HeroContainer>
