@@ -43,4 +43,12 @@ export const CommentDate = styled.div`
 export const Comment = styled.p`
     max-width: 60%;
     padding: 1rem;
+
+    @media screen and (max-width: 780px) {
+        max-width: 75%;
+    }
+
+    @media screen and (max-width: 680px) {
+        max-width: 100%;
+    }
 `

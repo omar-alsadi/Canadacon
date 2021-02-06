@@ -14,7 +14,7 @@ const Comments = () => {
             Comments & Reviwes :
             
             { currentUser ?
-                <form>
+                <form css={`width: 80%;`}>
                 <InputText placeholder="Write your comments" cols="10" rows="2" />
                 <Btn google='true' round='true' type='submit'>Submit</Btn>
                 </form>
@@ -31,7 +31,9 @@ const Comments = () => {
                         <CommentDate>21/01/2021</CommentDate>
                         </CommentDetails>
                     </User>
-                    <Comment>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tenetur pariatur sint aspernatur reiciendis eligendi recusandae odit qui a id voluptate explicabo dolor, nulla vitae quo inventore eveniet debitis dicta.</Comment>
+                    <Comment>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quae tenetur pariatur sint aspernatur reiciendis eligendi recusandae odit qui a id voluptate explicabo dolor,
+                        nulla vitae quo inventore eveniet debitis dicta.</Comment>
                 </UserComment>
 
             </CommentsWrapper>

@@ -120,7 +120,6 @@ export const signInWithFB = async (dispatch) => {
 
         const userData = await auth.signInWithPopup(facebookProvider);
         const { user } = await userData;
-        console.log('facebook user: ', user)
 
         await getSnapshotFromAuth(user, dispatch)
 

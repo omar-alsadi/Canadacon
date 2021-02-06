@@ -16,7 +16,6 @@ export const SectionTitle = styled.h2`
     font-size: clamp(1.5rem, 5vw, 2rem);
     text-align: center;
     color: #f26a2e;
-    margin-bottom: 2rem;
 `
 
 export const Desc = styled.p`
