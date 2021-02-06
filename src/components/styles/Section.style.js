@@ -8,23 +8,23 @@ export const SectionContainer = styled.div`
 `
 
 export const SectionWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 2rem;
 
-    @media screen and (max-width:768px) {
+    @media screen and (max-width:900px) {
         grid-template-columns: 1fr;
     }
 `
 export const OneColumn = styled.div`
-    display: grid;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: column;
 `
 
 export const TwoColumns = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 0 2rem;
-    grid-template-rows: 1fr 1fr;
 `
 
 export const SectionTitle = styled.h2`
@@ -39,7 +39,6 @@ export const SectionText = styled.p`
     text-decoration: uppercase;
     line-height: 1.5;
     margin-bottom: 1rem;
-    width: 75%;
     padding: 1rem;
 
     & span {
