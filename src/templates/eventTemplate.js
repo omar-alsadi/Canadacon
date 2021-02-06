@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "./../components/Layout"
-import { SectionContainer, SectionWrapper, SectionTitle, SectionText }
-    from '../components/styles/Section.style'
+import { TemplateContainer, TemplateWrapper, SectionTitle, Desc }
+    from '../components/styles/Template.style'
 import { graphql } from 'gatsby';
 
 export const query = graphql`
@@ -28,17 +28,17 @@ const eventTemplate = ({ data }) => {
 
     return (
         <Layout title={`${event.name}`} color={'white'} >
-            <SectionContainer css={`background: linear-gradient(180deg, rgba(0,0,0, .2) 0%, rgba(0,0,0, .6) 100%), linear-gradient(180deg, rgba(0,0,0, .2) 0%, transparent 100%),
+            <TemplateContainer css={`background: linear-gradient(180deg, rgba(0,0,0, .2) 0%, rgba(0,0,0, .6) 100%), linear-gradient(180deg, rgba(0,0,0, .2) 0%, transparent 100%),
             url(${event.img.publicURL}) no-repeat; background-size: cover;  background-position: center; background-attachment: fixed; margin-bottom: 2rem;`} />
 
-            <SectionWrapper>
+            <TemplateWrapper>
                 <SectionTitle>
                     {event.name}
                 </SectionTitle>
-                <SectionText>Date: {event.date}</SectionText>
-                <SectionText>Address: <span>address is not available now</span> </SectionText>
-                <SectionText>Description: </SectionText>
-                <SectionText>
+                <Desc>Date: {event.date}</Desc>
+                <Desc>Address: <span>address is not available now</span> </Desc>
+                <Desc>Description: </Desc>
+                <Desc>
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros,
                     pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
                     Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex,
@@ -50,9 +50,9 @@ const eventTemplate = ({ data }) => {
                     Phasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis.
                     Cras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus,
 non dictum mauris. Nulla at tellus sagittis, viverra est a.</span>
-                </SectionText>
+                </Desc>
 
-            </SectionWrapper>
+            </TemplateWrapper>
 
         </Layout>
     )
