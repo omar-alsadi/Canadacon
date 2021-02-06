@@ -36,7 +36,7 @@ const NavBar = ({ color }) => {
 
         <Nav css={[navScrolled && !isOpen && ` background-color: black`,
         isOpen && `background-color: rgba(0,0,0,.95) !important; height: 100%`]}>
-            <NavLogo to='/' css={`color: #f26a2e; font-size: 24px; font-weight: bold;`}>CANADACON</NavLogo>
+            <NavLogo to='/' onClick={isOpen ? () => dispatch(toggleNav()) : null} css={`color: #f26a2e; font-size: 24px; font-weight: bold;`}>CANADACON</NavLogo>
             {
                 isOpen ? <CloseBars onClick={() => dispatch(toggleNav())} /> : <Bars onClick={() => dispatch(toggleNav())}
                     css={navScrolled ? `color: #fff;` : `color: ${color};`} />
@@ -44,7 +44,7 @@ const NavBar = ({ color }) => {
 
             <NavMenu css={isOpen && `height: 100vh;padding: 5rem;`}>
                 {menuData.map((list, index) => (
-                    <NavLink key={index} id={index} to={list.link} css={[isOpen && `visibility: visible;`,
+                    <NavLink key={index} id={index} to={list.link} onClick={isOpen ? () => dispatch(toggleNav()) : null} css={[isOpen && `visibility: visible;`,
                     navScrolled ? `color: #fff;` : `color: ${color};`]}>
                         {isEnglish ? list.en : list.fr}
                     </NavLink>
@@ -53,7 +53,7 @@ const NavBar = ({ color }) => {
                     [isOpen && `visibility: visible;`,
                     navScrolled ? `color: #fff;` : `color: ${color};`,
 
-                    `@media screen and (max-width:768px) {
+                    `@media screen and (max-width:780px) {
                     color: #fff !important;
                     ${isOpen ? `visibility: visible;` : `visibility: hidden;`}
                 }`
@@ -63,7 +63,8 @@ const NavBar = ({ color }) => {
                     }
                 </LanBtn>
                 {
-                    isOpen && <Button primary='true' round='true' to='/sign' css={isOpen && `visibility: visible;`} >
+                    isOpen && <Button primary='true' round='true' to='/sign' onClick={() => dispatch(toggleNav())}
+                        css={isOpen && `visibility: visible;`} >
                         {isEnglish ? `Sign In` : `Se Connecter`}
                     </Button>
 

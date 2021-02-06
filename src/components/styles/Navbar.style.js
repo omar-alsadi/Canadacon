@@ -18,6 +18,7 @@ export const NavLink = styled(Link)`
     align-items: center;
     text-decoration: none;
     text-transform: uppercase;
+    text-align: center;
     font-size: 14px;
     padding: 0 1rem;
     height: 100%;
@@ -27,7 +28,7 @@ export const NavLink = styled(Link)`
         font-size: 12px;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         color: #fff !important;
     }
 
@@ -45,7 +46,7 @@ export const NavLogo = styled(Link)`
     padding: 0 1rem;
     cursor: pointer;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         position: fixed;
     }
 `
@@ -61,7 +62,7 @@ export const Nav = styled.nav`
     z-index: 100;
     transition: all .3s ease;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         height: 70px;
         align-items: start;
     }
@@ -70,7 +71,7 @@ export const Nav = styled.nav`
 export const Bars = styled(FaBars)`
     display: none;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         display: block;
         position: absolute;
         top: 0;
@@ -86,7 +87,7 @@ export const CloseBars = styled(VscChromeClose)`
     display: none;
     color: #fff;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         display: block;
         position: absolute;
         top: 0;
@@ -104,7 +105,7 @@ export const NavMenu = styled.div`
     display: flex;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         display: flex;
         flex-direction: column;
         visibility: hidden;
@@ -119,7 +120,7 @@ export const NavBtn = styled.div`
     margin-right: 24px;
     position: relative;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         display: none;
     }
 `

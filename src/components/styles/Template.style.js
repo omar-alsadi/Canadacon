@@ -10,10 +10,6 @@ export const TemplateWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem;
-
-    @media screen and (max-width:900px) {
-        grid-template-columns: 1fr;
-    }
 `
 
 export const SectionTitle = styled.h2`
@@ -39,7 +35,7 @@ export const Desc = styled.p`
         width: 85%;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 680px) {
         width: 100%;
     }
 `

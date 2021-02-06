@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "./../components/Layout"
 import { TemplateContainer, TemplateWrapper, SectionTitle, Desc }
     from '../components/styles/Template.style'
+import Comments from '../components/comments'
 import { graphql } from 'gatsby';
 
 export const query = graphql`
@@ -49,8 +50,10 @@ const eventTemplate = ({ data }) => {
                     faucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc.
                     Phasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis.
                     Cras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus,
-non dictum mauris. Nulla at tellus sagittis, viverra est a.</span>
+                    non dictum mauris. Nulla at tellus sagittis, viverra est a.</span>
                 </Desc>
+
+                <Comments />
 
             </TemplateWrapper>
 
