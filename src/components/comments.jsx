@@ -16,7 +16,7 @@ const Comments = () => {
             { currentUser ?
                 <form>
                 <InputText placeholder="Write your comments" cols="10" rows="2" />
-                <Btn primary='true' round='true' type='submit'/>
+                <Btn google='true' round='true' type='submit'>Submit</Btn>
                 </form>
                 :
                 <InputText placeholder="Please, sign In to write your comment" cols="5" rows="1" disabled />

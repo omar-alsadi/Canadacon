@@ -34,7 +34,6 @@ export const Wrapper = styled.div`
 
 export const StatBox = styled.div`
     width: 100%;
-    height: 100%;
     padding: 2rem;
 `
 
