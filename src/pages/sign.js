@@ -10,7 +10,9 @@ const SignInPage = () => {
     const [{ currentUser }] = useStateValue()
 
     if (currentUser && window.location.pathname === `/sign`) {
-        return navigate(`/`)
+        // If we’re not logged in, redirect to the home page.
+        navigate(`/`)
+        return null
     } else {
         return (
             <Layout title={'Sign In'} color={'black'}>
