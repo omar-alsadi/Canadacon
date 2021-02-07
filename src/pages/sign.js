@@ -13,14 +13,13 @@ const SignInPage = () => {
         // If we’re not logged in, redirect to the home page.
         navigate(`/`)
         return null
+    } else {
+        return (
+            <Layout title={'Sign In'} color={'black'}>
+                <SignIn />
+            </Layout>
+        )
     }
-
-
-    return (
-        <Layout title={'Sign In'} color={'black'}>
-            <SignIn />
-        </Layout>
-    )
 }
 
 export default SignInPage
