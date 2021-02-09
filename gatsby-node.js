@@ -1,6 +1,5 @@
 const path = require('path');
 
-
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
     if (stage === 'build-html') {

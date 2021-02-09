@@ -4,6 +4,7 @@ import { TemplateContainer, TemplateWrapper, SectionTitle, Desc }
     from '../components/styles/Template.style'
 import Comments from '../components/comments'
 import { graphql } from 'gatsby';
+import { pushEvent } from '../firebase.utilities'
 
 export const query = graphql`
     query ($slug: String!) {
@@ -26,6 +27,8 @@ export const query = graphql`
 const eventTemplate = ({ data }) => {
 
     const event = data.eventsDataJson;
+
+    pushEvent(event);
 
     return (
         <Layout title={`${event.name}`} color={'white'} >

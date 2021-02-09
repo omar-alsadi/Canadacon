@@ -144,6 +144,9 @@ export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = async (dispatch) => {
+
+    console.log(firestore);
+
     try {
         const { user } = await auth.signInWithPopup(googleProvider)
         await getSnapshotFromAuth(user, dispatch)
@@ -170,4 +173,31 @@ export const signOut = async (dispatch) => {
         return await dispatch(signFailure(error))
     }
 
+}
+
+/////////////////////////
+
+
+export const pushEvent = async (event) => {
+
+    if (!event) return;
+
+    console.log('event log: ', event)
+
+    console.log(firestore);
+
+    const eventRef = firestore.doc(`events/${event.id}`);
+
+    const eventSnapshot = await eventRef.get();
+
+    if (!eventSnapshot.exists) {
+        try {
+            eventRef.set({
+                id: event.id,
+                name: event.name,
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }

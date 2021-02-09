@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 
 export const SectionContainer = styled.div`
     padding: 7rem calc((100vw - 1300px) / 2);

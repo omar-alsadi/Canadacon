@@ -36,6 +36,32 @@ const Comments = () => {
                         nulla vitae quo inventore eveniet debitis dicta.</Comment>
                 </UserComment>
 
+                <UserComment>
+                    <User>
+                        <UserPhoto />
+                        <CommentDetails>
+                        <UserName css={`font-weight: bold;`}>User</UserName>
+                        <CommentDate>21/01/2021</CommentDate>
+                        </CommentDetails>
+                    </User>
+                    <Comment>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quae tenetur pariatur sint aspernatur reiciendis eligendi recusandae odit qui a id voluptate explicabo dolor,
+                        nulla vitae quo inventore eveniet debitis dicta.</Comment>
+                </UserComment>
+
+                <UserComment>
+                    <User>
+                        <UserPhoto />
+                        <CommentDetails>
+                            <UserName css={`font-weight: bold;`}>User</UserName>
+                            <CommentDate>21/01/2021</CommentDate>
+                        </CommentDetails>
+                    </User>
+                    <Comment>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quae tenetur pariatur sint aspernatur reiciendis eligendi recusandae odit qui a id voluptate explicabo dolor,
+                        nulla vitae quo inventore eveniet debitis dicta.</Comment>
+                </UserComment>
+
             </CommentsWrapper>
 
         </>
