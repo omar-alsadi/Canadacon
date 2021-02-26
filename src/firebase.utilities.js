@@ -175,16 +175,14 @@ export const signOut = async (dispatch) => {
 
 }
 
-/////////////////////////
+/////////////// Push Events To Firestore ///////////////
 
 
 export const pushEvent = async (event) => {
 
     if (!event) return;
 
-    console.log('event log: ', event)
-
-    console.log(firestore);
+    if (!firestore) return;
 
     const eventRef = firestore.doc(`events/${event.id}`);
 
@@ -201,3 +199,56 @@ export const pushEvent = async (event) => {
         }
     }
 }
+
+/////////////// Push Comments' Event To Firestore ///////////////
+
+
+export const pushComment = async (event, currentUser, comment) => {
+
+    if (!comment) return;
+
+    if (!firestore) return;
+
+    const eventRef = firestore.doc(`event_comments/${event.id}`);
+
+    const eventSnapshot = await eventRef.get();
+
+    const createAt = new Date();
+
+    if (!eventSnapshot.exists) {
+
+        try {
+
+            eventRef.set({
+                event_id: event.id,
+                event_name: event.name,
+                comments: [
+                    {
+                        id: currentUser.id,
+                        comment,
+                        date: createAt,
+                    }
+                ]
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    } else {
+        try {
+            const newComment = {
+                id: currentUser.id,
+                comment,
+                date: createAt,
+            }
+
+            eventRef.update({
+                comments: firebase.firestore.FieldValue.arrayUnion(newComment)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+}
+
+/////////////// Get Comments' Event From Firestore ///////////////

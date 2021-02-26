@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "./../components/Layout"
 import { TemplateContainer, TemplateWrapper, SectionTitle, Desc }
     from '../components/styles/Template.style'
-import Comments from '../components/comments'
+import CommentForm from '../components/CommentForm'
 import { graphql } from 'gatsby';
 import { pushEvent } from '../firebase.utilities'
 
@@ -56,7 +56,7 @@ const eventTemplate = ({ data }) => {
                     non dictum mauris. Nulla at tellus sagittis, viverra est a.</span>
                 </Desc>
 
-                <Comments />
+                <CommentForm event={event} />
 
             </TemplateWrapper>
 
